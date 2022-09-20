@@ -7,6 +7,8 @@ It is my hopes to build a small, modular engine that is easy and straightforward
 
 Please be aware the Engine API is *very* early in development and should be considered highly unstable.
 
+For documentation, see the Wiki.
+
 # Getting Started
 
 Rune has two dependencies: Zig and Vulkan.
