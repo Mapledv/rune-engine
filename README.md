@@ -3,8 +3,6 @@ An experimental game engine focusing on modularity.
 
 # About
 
-Something I've always wanted is a tool that I could use to quickly prototype projects, but did not rely on a complex setup or toolset. Oftentimes when working on demos or small projects, all I need is an interface + renderer, so large game engines tended to be far more complex than needed, while smaller platform layers like SDL2 or Raylib were not enough.
-
 It is my hopes to build a small, modular engine that is easy and straightforward to use. It remains yet to be seen if this will grow into a tool that others will want to use, but if you are curious about the roadmap, see the Roadmap Section.
 
 Please be aware the Engine API is *very* early in development and should be considered highly unstable.
