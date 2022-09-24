@@ -5,7 +5,7 @@ const Options = @import("../build.zig").Options;
 pub fn build(b: *std.build.Builder, options: Options) *std.build.LibExeObjStep {
     _ = options;
 
-    const exe = b.addExecutable("SyrupEngine", thisDir() ++ "/src/driver.zig");
+    const exe = b.addExecutable("RuneEngine", thisDir() ++ "/src/driver.zig");
 
     const target = b.standardTargetOptions(.{});
     const mode = b.standardReleaseOptions();

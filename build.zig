@@ -3,11 +3,15 @@ const std = @import("std");
 
 const driver = @import("driver/build.zig");
 const engine_core = @import("engine/build.zig");
-const testbed = @import("testbed/build.zig");
+const testbed = @import("testbed/zig_testbed/build.zig");
+const testbed_cpp = @import("testbed/cpp_testbed/build.zig");
 
+//TODO(maple): move options to its own file
 pub const Options = struct {
+    engine_path: []const u8,
     engine_lib: []const u8,
     testbed_lib: []const u8,
+    testbed_cpp_lib: []const u8,
 };
 
 pub fn build(b: *std.build.Builder) void {
@@ -16,13 +20,16 @@ pub fn build(b: *std.build.Builder) void {
     // - Is there a way to get the output path w/out hardcoding?
     // - Account for other build platforms!
     const options = Options{
+        .engine_path = thisDir() ++ "/engine/public",
         .engine_lib = "zig-out/lib/libengine_core.so.0",
         .testbed_lib = "zig-out/lib/libtestbed.so.0",
+        .testbed_cpp_lib = thisDir() ++ "/zig-out/lib/libcpp_testbed.so.0.0.1",
     };
 
     installModule(b, driver.build(b, options), true, "driver");
     installModule(b, engine_core.build(b, options), false, "engine_core");
     installModule(b, testbed.build(b, options), false, "testbed");
+    installModule(b, testbed_cpp.build(b, options), false, "testbed_cpp");
 }
 
 fn installModule(
